@@ -21,6 +21,7 @@ var wrgsv = {
 				// запрос на другой домен (асинхронный)
 				xhr.open('GET', this.url_wiget, true);
 				xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
+				xhr.setRequestHeader('X-Content-Type-Options', 'nosniff')
 				// событие отслеживает, что запрос был успешно завершён
 				xhr.onload = function() {
 					// если существует ответ
@@ -32,7 +33,9 @@ var wrgsv = {
 				xhr.onerror = function() { console.log('onerror '+this.status); }
 				// отсылаем запрос
 				xhr.send();
-			} catch(e) {}
+			} catch(e) {
+				console.log(e)
+			}
 		}
 			// если на странице не существует HTML элемента с указаным идентификатором
 		// выводим сообщение: блок с идентификатором id="id" отсутствует

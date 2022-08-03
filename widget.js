@@ -20,7 +20,7 @@ var wrgsv = {
 				var xhr = new XHR();
 				// запрос на другой домен (асинхронный)
 				xhr.open('GET', this.url_wiget, true);
-				XHR.setRequestHeader('Access-Control-Allow-Origin', '*')
+				xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
 				// событие отслеживает, что запрос был успешно завершён
 				xhr.onload = function() {
 					// если существует ответ

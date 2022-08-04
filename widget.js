@@ -2,9 +2,9 @@ var wrgsv = {
 	// идентификатор HTML элемента в который будет размещен виджет
 	idBox: 'wrgsv',
 	// путь до страницы возвращающей виджет
-	url_wiget: 'http://yoursite.loc/widget.php',
+	url_wiget: 'https://github.com/Hazard-87/widget/widget.php',
 	// путь до страницы стилей виджета
-	url_style: 'http://yoursite.loc/widget.css',
+	url_style: 'https://github.com/Hazard-87/widget/widget.css',
 	// метод инициализации виджета
 	init: function(id) {
 		// если идентификатор отсутствует, то будем использовать

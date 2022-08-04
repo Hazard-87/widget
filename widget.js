@@ -2,9 +2,9 @@ var wrgsv = {
 	// идентификатор HTML элемента в который будет размещен виджет
 	idBox: 'wrgsv',
 	// путь до страницы возвращающей виджет
-	url_wiget: 'https://pokemons-app.herokuapp.com/',
+	url_wiget: 'http://yoursite.loc/widget.php',
 	// путь до страницы стилей виджета
-	// url_style: 'http://yoursite.loc/widget.css',
+	url_style: 'http://yoursite.loc/widget.css',
 	// метод инициализации виджета
 	init: function(id) {
 		// если идентификатор отсутствует, то будем использовать
@@ -12,7 +12,7 @@ var wrgsv = {
 		if (!id) { id = this.idBox; }
 		if (document.getElementById(id)) {
 			// подключаем стили виджета
-			// this.addStyle();
+			this.addStyle();
 			try {
 				// для кросс-доменного запроса создаем один из ниже указанных объектов
 				var XHR = ("onload" in new XMLHttpRequest())?XMLHttpRequest:XDomainRequest;
@@ -20,8 +20,7 @@ var wrgsv = {
 				var xhr = new XHR();
 				// запрос на другой домен (асинхронный)
 				xhr.open('GET', this.url_wiget, true);
-				xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
-				xhr.setRequestHeader('X-Content-Type-Options', 'nosniff')
+				// xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
 				// событие отслеживает, что запрос был успешно завершён
 				xhr.onload = function() {
 					// если существует ответ
@@ -42,11 +41,11 @@ var wrgsv = {
 		else { console.log('The specified block id="'+id+'" is missing'); }
 	},
 	// метод подключения стилей виджета
-	// addStyle: function() {
-	// 	style = document.createElement('link');
-	// 	style.rel = 'stylesheet';
-	// 	style.type = 'text/css';
-	// 	style.href = this.url_style;
-	// 	document.head.appendChild(style);
-	// },
+	addStyle: function() {
+		style = document.createElement('link');
+		style.rel = 'stylesheet';
+		style.type = 'text/css';
+		style.href = this.url_style;
+		document.head.appendChild(style);
+	},
 };
